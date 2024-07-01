@@ -30,7 +30,7 @@ const ResultsPage = () => {
  }, [searchParams, problems]);
 
  return (
-  <div className="flex flex-col items-center pt-14 min-h-screen h-full gap-4">
+  <div className="flex flex-col items-center min-h-screen h-full gap-4">
    <h2 className="text-blue-950 text-2xl font-bold">Rezultaty</h2>
    {results.length > 0 ? (
     results.map((result, index) => (
