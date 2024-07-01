@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import ResultItem from "@/components/result/result-item";
 import problemsData from "@/data/manager_problems_solutions.json";
 
-const ResultsPage = () => {
+const ResultsContent = () => {
  const searchParams = useSearchParams();
  const [results, setResults] = useState<
   { title: string; description: string }[]
@@ -53,5 +53,11 @@ const ResultsPage = () => {
   </div>
  );
 };
+
+const ResultsPage = () => (
+ <Suspense fallback={<div>Loading...</div>}>
+  <ResultsContent />
+ </Suspense>
+);
 
 export default ResultsPage;
